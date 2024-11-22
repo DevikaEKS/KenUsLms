@@ -222,7 +222,7 @@ function AddCourse() {
             </div>
           </div>
           <div className="d-flex justify-content-end">
-          <input type="submit" className="frmbutton rounded-1 p-2" />
+          <input type="submit" value={"Submit"} className="frmbutton rounded-1 p-2" />
           </div>
         
         </form>

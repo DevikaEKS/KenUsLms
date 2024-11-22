@@ -9,14 +9,17 @@
     color: #fff;
 }
 .lesson{
-    max-height: 250px;
+    height: 250px;
+    width: 300px;
+    /* max-height: 250px;
+    max-width: 300px; */
 }
 
 .arrowclr,.clrcrd{
     color: #001040;
 }
 
-@media (max-width:425px){
+@media (max-width:426px){
     .lesson{
         max-height: 150px;
         max-width: 250px;

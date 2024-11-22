@@ -8,7 +8,6 @@ import axios from "axios";
 function Grade() {
   const navigate = useNavigate(); // Correctly use useNavigate
   const { id } = useParams();
-
   const [grade, setGrade] = useState([]);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ function Grade() {
         console.log(res.data);
         setGrade(res.data);
       });
-  }, []);
+  }, [id]);
 
   const handleNavigate = () => {
     navigate("/"); // Replace with the actual path you want to navigate to
@@ -28,7 +27,7 @@ function Grade() {
       {/* <div className='my-4'>
           <FontAwesomeIcon icon={faArrowLeft} className='arrowsize' onClick={handleNavigate()}/>
           </div> */}
-      <div className="d-flex justify-content-center align-items-center px-5">
+      <div className="d-flex justify-content-center align-items-center px-1 px-lg-5">
         <table className="responsive-table">
           <thead>
             <tr className="text-center">

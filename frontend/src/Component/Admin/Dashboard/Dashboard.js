@@ -321,10 +321,10 @@ export function Dashboard() {
                     </div>
                     <hr />
                     <div class="mt-2 mb-0 text-sm">
-                      <span class="badge badge-pill bg-soft-danger text-danger me-2">
+                      {/* <span class="badge badge-pill bg-soft-danger text-danger me-2">
                         <i class="bi bi-arrow-down me-1"></i>-
                         {learnerjoinerpercentage}%
-                      </span>
+                      </span> */}
                       <Link to={`/admindashboard/${id}/notenroll`}>
                         <span class="textend">Not Enrolled...</span>
                       </Link>
@@ -390,11 +390,11 @@ export function Dashboard() {
                         <tbody className="bg-light">{renderTableData()}</tbody>
                       </table>
                     </div>
-                    <div class="card-footer border-0 py-5">
+                    {/* <div class="card-footer border-0 py-5">
                       <span class="text-muted text-sm">
                         Showing 10 items out of 250 results found
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </main>

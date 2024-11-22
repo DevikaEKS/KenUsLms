@@ -16,6 +16,7 @@ import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is included
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
+
 function CourseVideos() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeContent, setActiveContent] = useState("quiz");
@@ -280,10 +281,6 @@ function CourseVideos() {
       }
     });
 
-    // console.log(result);
-    // console.log(match);
-    // console.log(desc);
-    // console.log(check);
 
     // API submission
     axios
@@ -550,6 +547,7 @@ function CourseVideos() {
     <>
       <div className="container-fluid">
         <div className="row">
+          <h4 className="px-4 py-2" style={{color:"#001040"}}>{moduleName}</h4>
           <ToastContainer />
           <div
             className={`col-auto ${
@@ -563,35 +561,35 @@ function CourseVideos() {
             >
               <FaBars />
             </button>
+          
             <div
               className={`sidebar-content ${
                 isSidebarOpen ? "d-block" : "d-none"
               }`}
             >
-              <p className="my-3 sidetext p-2">
+              <p className="my-1 sidetext p-2">
                 <b
                   style={{
                     color: "#001040",
                     fontSize: "20px",
                   }}
                 >
-                  {moduleName && moduleName.length > 11 ? (
+                
+                  {/* {moduleName && moduleName.length > 30 ? (
                     <>
-                      {moduleName.slice(0, 11)} <br /> {moduleName.slice(11)}
+                      {moduleName.slice(0, 30)} <br /> {moduleName.slice(11)}
                     </>
                   ) : (
                     moduleName || "Module"
-                  )}
+                  )} */}
                 </b>
               </p>
               {sidebarItems.map((item, index) => {
-                const title = item.quiz_type_name || item.activity_name;
+                const title = item.quiz_type_name || "Content";
 
                 const formattedTitle =
-                  title.length > 11 ? (
-                    <>
-                      {title.slice(0, 11)} <br /> {title.slice(11)}
-                    </>
+                  title.length > 20 ? (
+                    <>Content</>
                   ) : (
                     title
                   );
@@ -650,7 +648,10 @@ function CourseVideos() {
                 </>
               )}
               {!startQuiz ? (
+                <div>
+                  
                 <div className="quizpart p-3 quizparttext">
+                 
                   <h1 className="profoundhead my-4">
                     To Me Testing Is A Profound Duty.
                   </h1>
@@ -683,11 +684,13 @@ function CourseVideos() {
                     </button>
                   </div>
                 </div>
+                </div>
               ) : (
                 activeContent === "quiz" &&
                 !loading &&
                 !error && (
                   <div>
+                   
                     {isReviewing ? (
                       <div className="review-container quizpart p-3 rounded-2">
                         <h3 className="quizrev">

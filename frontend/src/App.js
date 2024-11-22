@@ -187,7 +187,7 @@ function App() {
           <Route path="/instructor" element={<Instructors />} />
           <Route path="/courseoverview" element={<Overview />} />
           <Route path="/courseview" element={<Courseview />} />
-          <Route path="/allcourselist/:id" element={<Availablecourses />} />
+          <Route path="/allcourselist/:id" element={[<DrmenubarUser />, <Availablecourses />]} />
           {/* <Route path="/quizquestions" element={<QuestionDisplay />} /> */}
           <Route
             path="/ken/:course/:module/:id"
@@ -202,8 +202,8 @@ function App() {
             path="/user/:id/profile"
             element={[<DrmenubarUser />, <DashBoardProfile />]}
           />
-          <Route path="/user/:id/message" element={<DashBoardMessage />} />
-          <Route path="/user/:id/payment" element={<DashBoardPayment />} />
+          <Route path="/user/:id/message" element={[<DrmenubarUser />, <DashBoardMessage />]} />
+          <Route path="/user/:id/payment" element={[<DrmenubarUser />, <DashBoardPayment />]} />
           <Route path="/user/:id/editprofile" element={<Edit />} />
           <Route path="/mp" element={<MapComponent />} />
         </Routes>

@@ -5,7 +5,7 @@ import "./Coursecompleted.css";
 import stud1 from "../../../Asset/graduatedgirl.png";
 import stud2 from "../../../Asset/stud2.png";
 import stud3 from "../../../Asset/lapcard.png";
-import certificate from "../../../Asset/certificate.png";
+import certificate from "../../../Asset/Certificatebg.jpg";
 import StarRating from './StarRating';
 import { Link } from 'react-router-dom';
 

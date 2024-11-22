@@ -110,6 +110,7 @@ function Lessons() {
                       src={e.module_image}
                       alt="lesson"
                       className="rounded-3 lesson"
+                      accept=".jpg,.jpeg,.png,.tiff,.tif"
                     />
                   </div>
                   <div className="col-lg-6 d-flex flex-column justify-content-center textpart">

@@ -212,13 +212,9 @@ const CategoryQuizList = () => {
         <div style={{ marginBottom: "20px" }}>
           <div className="form-group">
             <div className="form-group-inner">
-            <label className="labelcourse">Categories</label>
-            <select
-            className="fc1"
-              value={selectedCategory}
-              onChange={handleCategoryChange}
-              style={{ width: "50%", padding: "10px" }}>
-              <option value="">Select a category</option>
+            <label className="labelcourse">Module Name</label>
+            <select className="fc1" value={selectedCategory} onChange={handleCategoryChange} style={{ width: "50%", padding: "10px" }}>
+              <option value="">Select a Module</option>
               {categories.map((category) => (
                 <option key={category.moduleid} value={category.moduleid}>
                   {category.modulename}

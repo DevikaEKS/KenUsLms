@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import {Input } from "reactstrap";
+import { Input } from "reactstrap";
 import JoditEditor from "jodit-react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -278,13 +278,12 @@ const Coursecontent = () => {
     <div className="container-fluid py-3">
       <h3 className="text-center headinginstructor">Page Content</h3>
       <ToastContainer />
-        <div className="modpart p-3">
-          <form onSubmit={handleSubmit}>
-
-            <div className="form-group my-1">
-              <div className="form-group-inner">
-<label className="labelcourse">Course Name</label>
-<Input
+      <div className="modpart p-3">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group my-1">
+            <div className="form-group-inner">
+              <label className="labelcourse">Course Name</label>
+              <Input
                 type="select"
                 id="courseSelect"
                 value={selectedCourse}
@@ -301,14 +300,14 @@ const Coursecontent = () => {
                   </option>
                 ))}
               </Input>
-              </div>
             </div>
+          </div>
 
-         <div className="form-group my-1">
-          <div className="form-group-inner">
-            <label className="labelcourse">Module Name</label>
+          <div className="form-group my-1">
+            <div className="form-group-inner">
+              <label className="labelcourse">Module Name</label>
 
-            <Input
+              <Input
                 type="select"
                 id="moduleSelect"
                 value={selectedModule}
@@ -325,74 +324,72 @@ const Coursecontent = () => {
                   </option>
                 ))}
               </Input>
-             
-             
+            </div>
           </div>
-         </div>
 
-            <div className="form-group">
-              <div className="form-group-inner">
-                <label className="labelcourse">Description</label>
-                <Input
+          <div className="form-group">
+            <div className="form-group-inner">
+              <label className="labelcourse">Description</label>
+              <Input
                 type="textarea"
                 id="description"
                 value={description}
                 onChange={handleDescriptionChange}
                 className="rounded-0 fc1"
               />
-              </div>
             </div>
+          </div>
 
-            
-
-            <div className="my-3">
-<div className="d-flex justify-content-between py-3">
-              <label for="content" className="labelcourse">Page Content</label>
+          <div className="my-3">
+            <div className="d-flex justify-content-between py-3">
+              <label for="content" className="labelcourse">
+                Page Content
+              </label>
               <Link to={`/instructordashboard/${id}/updatepagecontent`}>
-        <button type="submit" className="updatebtn rounded-2 mx-2">
-          Update Content
-        </button>
-      </Link>
-      </div>
-              <JoditEditor
-                ref={editor}
-                value={post.content}
-                onBlur={(newContent) => handleEditorChange(newContent)}
-                className="rounded-0 fc1"
-                // config={{
-                //   uploader: {
-                //     insertImageAsBase64URI: true,
-                //     url: handleFileUpload, // Custom file upload handler
-                //   },
-                // }}
-              />
+                <button type="submit" className="updatebtn rounded-2 mx-2">
+                  Update Content
+                </button>
+              </Link>
             </div>
+            <JoditEditor
+              ref={editor}
+              value={post.content}
+              onBlur={(newContent) => handleEditorChange(newContent)}
+              className="rounded-0 fc1"
+              // config={{
+              //   uploader: {
+              //     insertImageAsBase64URI: true,
+              //     url: handleFileUpload, // Custom file upload handler
+              //   },
+              // }}
+            />
+          </div>
 
-            <div className="form-group">
-  <div className="form-group-inner">
-    <label className="labelcourse">Available From</label>
-    <Input
+          <div className="form-group">
+            <div className="form-group-inner">
+              <label className="labelcourse">Available From</label>
+              <Input
                 type="date"
                 id="availableFrom"
                 value={availableFrom}
                 onChange={(e) => setAvailableFrom(e.target.value)}
                 className="rounded-0 fc1"
               />
-  </div>
-</div>
-            <div className="form-group">
-              <div className="form-group-inner">
-                <label className="labelcourse">Available Until</label>
-                <Input
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="form-group-inner">
+              <label className="labelcourse">Available Until</label>
+              <Input
                 type="date"
                 id="availableUntil"
                 value={availableUntil}
                 onChange={(e) => setAvailableUntil(e.target.value)}
                 className="rounded-0 fc1"
               />
-              </div>
             </div>
-           {/* <div className="row">
+          </div>
+          {/* <div className="row">
             <div className="my-2 col-sm-12 col-md-5 float-start">
             <button type="submit" className="updatebtn rounded-2 mx-2"> Submit Content</button>
               
@@ -404,29 +401,26 @@ const Coursecontent = () => {
   </div>
             </div> */}
 
-<div className="row">
-  <div className="col-sm-12 d-flex justify-content-between my-2">
-    <div className="col-sm-12 col-md-5">
-      <button type="submit" className="updatebtn rounded-2 mx-2">
-        Submit Content
-      </button>
-    </div>
+          <div className="row">
+            <div className="col-sm-12 d-flex justify-content-between my-2">
+              <div className="col-sm-12 col-md-5">
+                <button type="submit" className="updatebtn rounded-2 mx-2">
+                  Submit Content
+                </button>
+              </div>
 
-    {/* <div className="col-sm-12 col-md-5">
+              {/* <div className="col-sm-12 col-md-5">
       <Link to={`/instructordashboard/${id}/updatepagecontent`}>
         <button type="submit" className="updatebtn rounded-2 mx-2">
           Update Content
         </button>
       </Link>
     </div> */}
-  </div>
-</div>
-
-
-
-          </form>     
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    </div> 
   );
 };
 

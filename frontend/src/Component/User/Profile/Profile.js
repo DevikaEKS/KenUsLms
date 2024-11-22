@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import { Link, useParams } from "react-router-dom";
-// import { Bar } from "react-chartjs-2";
 import pattern from "patternomaly";
 import ProgressBar from "@ramonak/react-progress-bar";
 import FullCalendar from "@fullcalendar/react";
@@ -35,7 +34,10 @@ ChartJS.register(
   Legend
 );
 
-
+function capitalize(name) {
+  if (!name) return ""; // Ensure the name exists
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
 export function Indiviualdashboardmain() {
   const { id } = useParams();
   const [user, setUser] = useState({
@@ -155,19 +157,8 @@ export function Indiviualdashboardmain() {
                 Dashboard
               </a>
             </li>
-            <li className="py-2">
-              <a href="#" className="text-dark">
-                Overview
-              </a>
-            </li>
-            <li className="py-2">
-              <a href="#" className="text-dark position-relative">
-                Messages{" "}
-                <span className="badge bg-primary position-absolute top-0 start-100 translate-middle">
-                  6
-                </span>
-              </a>
-            </li>
+           
+           
           </ul>
           <a href="#" className="text-primary">
             Logout
@@ -182,7 +173,7 @@ export function Indiviualdashboardmain() {
                   <h1 className="h2 mb-0 ls-tight">
                     Hi,{" "}
                     <span style={{ color: "#DC3545" }}>
-                      {user.first_name} {user.last_name}
+                    {capitalize(user.first_name)}  {user.last_name}
                     </span>
                   </h1>
                 </div>
@@ -265,28 +256,56 @@ export function Indiviualdashboardmain() {
               </div>
               <div className="mb-2">
                 <h5 className="mb-0">
-                  {user.first_name} {user.last_name}
+                 {capitalize (user.first_name)} {user.last_name}
+
                 </h5>
                 <p className="mb-1">{user.role}</p>
               </div>
               <p className="mb-0">Course Completion</p>
               <ProgressBar
                 completed={user.completion_percentage}
-                bgColor="#DC3545"
+                bgColor="#ffa200"
               />
             </div>
           </div>
 
-          <div className="col-sm-12 col-lg-12">
+          {/* <div className="col-sm-12 col-lg-12">
             <div className="card shadow rounded-4 p-4 text-dark text-decoration-none">
               <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
                 events={events}
-                eventClick={handleEventClick}
-              />
+                eventClick={handleEventClick}/>
             </div>
-          </div>
+          </div> */}
+
+
+
+<div className="col-sm-12 col-lg-12">
+      <div className="card shadow rounded-4 p-4 text-dark text-decoration-none">
+        <FullCalendar
+          plugins={[dayGridPlugin]}
+          initialView="dayGridMonth"
+          events={events}
+          eventClick={handleEventClick}
+          dayHeaderFormat={{ weekday: "short" }} 
+          headerToolbar={{
+            left: "prev,next", // Only includes navigation buttons
+            right: "title",   // Displays the current title (e.g., November 2024)
+            
+          }}
+          windowResize={(arg) => {
+            if (window.innerWidth <= 768) {
+              arg.view.calendar.setOption("dayHeaderFormat", { weekday: "narrow" }); // Narrow format for small devices
+            } else {
+              arg.view.calendar.setOption("dayHeaderFormat", { weekday: "short" }); // Short format for larger devices
+            }
+          }}
+        />
+      </div>
+    </div>
+
+
         </div>
       </div>
 
